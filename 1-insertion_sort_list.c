@@ -14,35 +14,32 @@ void insertion_sort_list(listint_t **list)
 	listint_t *previous = NULL;
 	listint_t *current = *list;
 
-	if (list || *list || (*list)->next)
+	while (current)
 	{
-		while (current)
+		previous = current->prev;
+		while (previous)
 		{
-			previous = current->prev;
-			while (previous)
+			if (previous->n > current->n)
 			{
-				if (previous->n > current->n)
-				{
-					if (previous->prev)
-						previous->prev->next = current;
+				if (previous->prev)
+					previous->prev->next = current;
 
-					if (current->next)
-						current->next->prev = previous;
+				if (current->next)
+					current->next->prev = previous;
 
-					previous->next = current->next;
-					current->prev = previous->prev;
-					previous->prev = current;
-					current->next = previous;
+				previous->next = current->next;
+				current->prev = previous->prev;
+				previous->prev = current;
+				current->next = previous;
 
-					if (!current->prev)
-						*list = current,
-						current = *list;
+				if (!current->prev)
+					*list = current,
+					current = *list;
 
-					print_list(*list);
-				}
-				previous = previous->prev;
+				print_list((const listint_t *)*list);
 			}
-			current = current->next;
+			previous = previous->prev;
 		}
+		current = current->next;
 	}
 }
