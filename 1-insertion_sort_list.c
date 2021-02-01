@@ -33,8 +33,7 @@ void insertion_sort_list(listint_t **list)
 				current->next = previous;
 
 				if (!current->prev)
-					*list = current,
-					current = *list;
+					*list = current;
 
 				print_list((const listint_t *)*list);
 			}
