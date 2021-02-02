@@ -12,11 +12,12 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *previous = NULL;
-	listint_t *current = *list;
+	listint_t *current = NULL;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
+	current = *list;
 	while (current)
 	{
 		previous = current->prev;
