@@ -1,3 +1,4 @@
+<div align="center"><img src="https://i.ibb.co/H4xPyMx/BIG-O.png"></div>
 
 # 0x1B. C - Sorting algorithms & Big O
 
